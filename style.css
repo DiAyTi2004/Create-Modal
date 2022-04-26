@@ -1,0 +1,56 @@
+*{
+    padding: unset;
+    margin: unset;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Times New Roman', Times, serif;
+}
+#main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(190, 189, 189);
+}
+.btn{
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: none;
+    opacity: 0.7;
+    transition: all linear 0.2s;
+    outline-width: 0.2px;
+    outline-color: rgb(95, 96, 97);
+    min-width: 200px;
+    justify-content: center;
+}
+.btn__content{
+    font-size: 18px;
+    color: white;
+    font-weight: 400;
+}
+.btn__icon{
+    color: white;
+    font-size: 20px;
+    margin-left: 12px;
+}
+.btn+ .btn{
+    margin-top: 24px;
+}
+.btn:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.btn.btn--confirmOnly{
+    background-color: rgb(51, 204, 51);
+}
+.btn.btn--cancelOnly{
+    background-color: rgb(247, 54, 54);
+}
+.btn.btn--confirmAndCancel{
+    background-image: linear-gradient(90deg, rgb(247, 54, 54), rgb(51, 204, 51));
+}

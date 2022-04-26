@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo CreateModal PureJavaScript</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="./tooltips.css">
+<link rel="stylesheet" href="./modal.css">
+<link rel="stylesheet" href="./style.css">
+
+<body>
+    <div id="main">
+        <button class="btn btn--confirmOnly">
+            <h4 class="btn__content">
+                Click me!
+            </h4>
+            <div class="btn__icon__wrapper">
+                <i class="btn__icon fa-solid fa-circle-check"></i>
+            </div>
+        </button>
+        <button class="btn btn--cancelOnly">
+            <h4 class="btn__content">
+                Click me!
+            </h4>
+            <div class="btn__icon__wrapper">
+                <i class="btn__icon fa-solid fa-ban"></i>
+            </div>
+        </button>
+        <button class="btn btn--confirmAndCancel">
+            <h4 class="btn__content">
+                Click me either!
+            </h4>
+            <div class="btn__icon__wrapper">
+                <i class="btn__icon fa-solid fa-circle-check"></i>
+                <i class="btn__icon fa-solid fa-plus"></i>
+                <i class="btn__icon fa-solid fa-ban"></i>
+            </div>
+        </button>
+    </div>
+    <script src="./modalCreator.js"></script>
+    <script src="./toolTipsCreator.js"></script>
+    <!-- create tooltips -->
+    <script>
+        CreateToolTips({
+            selector: '.btn--confirmOnly',
+            position: 'top',
+            message: 'Click this button to show Confirm Modal'
+        });
+        CreateToolTips({
+            selector: '.btn--cancelOnly',
+            position: 'left',
+            message: 'Click this button to show Cancel Modal'
+        });
+        CreateToolTips({
+            selector: '.btn--confirmAndCancel',
+            position: 'bottom',
+            message: 'Click this button to show Confirm and Cancel Modal'
+        });
+    </script>
+    <!-- create Modal -->
+    <script>
+        function handleConfirmAction(){
+            //When user click confirm button in Modal
+            //This action will be occurred
+            alert( 'Confirm logic will be occurred...');
+        }
+        function handleCancelAction(){
+            //When user click cancel button in Modal
+            //This action will be occurred
+            alert( 'Cancel logic will be occurred...');
+        }
+        CreateModal({
+            selector: '.btn--confirmOnly',
+            title: 'What is Confirm?',
+            message: 'If someone is confirmed, they are formally accepted as a member of a Christian church during a ceremony in which they say they believe what the church teaches.',
+            confirm: handleConfirmAction,
+        });
+        CreateModal({
+            selector: '.btn--cancelOnly',
+            title: 'What is Cancel?',
+            message: 'to decide not to conduct or perform (something planned or expected) usually without expectation of conducting or performing it at a later time',
+            cancel: handleCancelAction
+        });
+        CreateModal({
+            selector: '.btn--confirmAndCancel',
+            title: 'What is Confirm and Cancel?',
+            message: 'If you have an account with a bank or a similar organization, you have an arrangement to leave your money there and take some out when you need it. [...]',
+            confirm: handleConfirmAction,
+            cancel: handleCancelAction
+        });
+    </script>
+</body>
+
+</html>
